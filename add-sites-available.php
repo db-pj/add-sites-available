@@ -40,9 +40,11 @@
 	ErrorLog /home/$site_url/logs/error.log
 	CustomLog /home/$site_url/logs/access.log combined
 		<Directory '/home/$site_url/public_html'>
-       		Order allow,deny
-       		Allow from all
-       		Require all granted
+			AuthName 'Password Protected Area'
+            AuthUserFile /home/.htpasswd
+            AuthType Basic
+            Require valid-user
+			AllowOverride All
     	</Directory>
 </VirtualHost>");
 		fclose( $file_handle );

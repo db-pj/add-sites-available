@@ -39,6 +39,11 @@
 	DocumentRoot /home/$site_url/public_html
 	ErrorLog /home/$site_url/logs/error.log
 	CustomLog /home/$site_url/logs/access.log combined
+		<Directory '/home/$site_url/public_html'>
+       		Order allow,deny
+       		Allow from all
+       		Require all granted
+    	</Directory>
 </VirtualHost>");
 		fclose( $file_handle );
 		unset( $file_handle );

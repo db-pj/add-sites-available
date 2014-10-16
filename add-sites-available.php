@@ -22,6 +22,9 @@
 		'ha',   //HOSTINGADVICE
 	);
 
+	//Set port to argv or default to 80
+	$port = isset( $argv[1] ) ? $argv[1] : '80';
+
 	//PATH TO VIRTUAL HOST FILES
 	$path = '/etc/apache2/sites-available/';
 
@@ -29,10 +32,10 @@
 	$stdout = fopen('php://stdout', 'w');
 	foreach( $site_prefixes as $site_prefix ) :
 		$site_url = empty( $site_prefix ) ? $site_domain : $site_prefix . '.' . $site_domain;
-		$file_handle = fopen( $path . $site_url . '.conf', 'w' );
+		$file_handle = fopen( $path . $site_url, 'w' );
 		fwrite( $stdout, "Writing file: $site_url\n" );
 		fwrite( $file_handle,
-"<VirtualHost *:80>
+"<VirtualHost *:$port>
 	ServerAdmin $server_admin
 	ServerName $site_url
 	ServerAlias www.$site_url

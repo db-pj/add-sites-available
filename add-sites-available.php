@@ -40,7 +40,7 @@
 	ServerAdmin $server_admin
 	ServerName $site_url
 	ServerAlias www.$site_url
-	DocumentRoot /home/$site_url/public_html
+	DocumentRoot /home/sites/$site_url/public_html
 	ErrorLog /home/sites/$site_url/logs/error.log
 	CustomLog /home/sites/$site_url/logs/access.log combined
 		<Directory '/home/sites/$site_url/public_html'>

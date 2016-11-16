@@ -20,6 +20,7 @@
 		'cr',	//CARDRATES
 		'gvs',  //GAINESVILLESHOWS
 		'ha',   //HOSTINGADVICE
+		'dc',   //DEALCRUNCH
 	);
 
 	//Set port to argv or default to 80
